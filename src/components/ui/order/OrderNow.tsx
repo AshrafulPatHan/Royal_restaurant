@@ -21,6 +21,7 @@ export default function OrderNow({ _id, foodName, price, details, photo, }: Orde
     const [address, setAddress] = useState('');
     const [email, setEmail] = useState('unknown');
     const [phone, setPhone] = useState('unknown');
+    const [isLoading, setIsLoading] = useState(false);
 
 
 
@@ -49,6 +50,9 @@ export default function OrderNow({ _id, foodName, price, details, photo, }: Orde
         }
         validation(contact);
 
+        // start loader
+        setIsLoading(true);
+
 
         const SendData = {
             amount: PayAmount,
@@ -65,6 +69,7 @@ export default function OrderNow({ _id, foodName, price, details, photo, }: Orde
 
             if (res.data.GatewayPageURL) {
                 window.location.href = res.data.GatewayPageURL; // ✅ Redirect to SSLCommerz payment page
+                setIsLoading(false);
             } else {
                 toast.error("Failed to get payment URL");
             }
@@ -144,9 +149,14 @@ export default function OrderNow({ _id, foodName, price, details, photo, }: Orde
                             {/* Checkout Button */}
                             <button
                                 type="submit"
-                                className="mt-2 bg-amber-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-amber-600 transition shadow-md"
+                                className="mt-2 bg-amber-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-amber-600 transition shadow-md flex items-center text-center justify-center"
                             >
                                 Checkout
+                                {isLoading ? (
+                                    <div className="w-5 h-5 border-4 border-white border-t-transparent rounded-full animate-spin ml-2"></div>
+                                ) : (
+                                    <p></p>
+                                )}
                             </button>
                         </form>
                     </div>
