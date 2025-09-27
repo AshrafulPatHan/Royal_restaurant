@@ -23,6 +23,7 @@ type Menu = {
 const Menu = () => {
     const [menu, setMenu] = useState<Menu[]>([]);
     const [popular, setPopular] = useState<Menu[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         function fetchMenu() {
@@ -30,6 +31,7 @@ const Menu = () => {
                 async function GetAllMenu() {
                     const response = await axios.get(`${PublicUrl}/all-menu`);
                     setMenu(response.data);
+                    setIsLoading(false);
                 }
                 GetAllMenu();
 
@@ -53,45 +55,50 @@ const Menu = () => {
                     <h2 className="text-header">Popular Menu</h2>
                     <img src={line} alt="logo" className="mb-primary mt-3 " />
                     {/* our popular menu */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
-                        {popular.map((item) => (
-                            <div key={item._id}>
-                                <div className=" w-[97vw] sm:w-[370px] ">
-                                    <div className="w-[97vw] sm:w-[370px] h-auto sm:h-[300px] overflow-hidden object-center relative ">
-                                        <img src={item.PhotoUrl} alt="photo 1" className="hover-image-popular " />
-                                    </div>
-                                    <div className="flex flex-col h-[170px] justify-between">
-                                        <div>
-                                            <div className="mt-5 flex justify-between text-2xl">
-                                                <h4 className="text-white">{item.foodName}</h4>
-                                                <p>${item.price}</p>
-                                            </div>
-                                            <p className="text-[var(--pTx-color)] text-sm pt-[6px] pb-4 w-[300px] ">
-                                                {item.details}
-                                            </p>
+                    {isLoading ? (
+                        <div className="w-12 h-12 border-4 border-amber-600 border-t-transparent rounded-full animate-spin"></div>
+                    ) : (
+                        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
+                            {popular.map((item) => (
+                                <div key={item._id}>
+                                    <div className=" w-[97vw] sm:w-[370px] ">
+                                        <div className="w-[97vw] sm:w-[370px] h-auto sm:h-[300px] overflow-hidden object-center relative ">
+                                            <img src={item.PhotoUrl} alt="photo 1" className="hover-image-popular " />
                                         </div>
+                                        <div className="flex flex-col h-[170px] justify-between">
+                                            <div>
+                                                <div className="mt-5 flex justify-between text-2xl">
+                                                    <h4 className="text-white">{item.foodName}</h4>
+                                                    <p>${item.price}</p>
+                                                </div>
+                                                <p className="text-[var(--pTx-color)] text-sm pt-[6px] pb-4 w-[300px] ">
+                                                    {item.details}
+                                                </p>
+                                            </div>
 
-                                        <div className="flex justify-between">
-                                            <OrderNow
-                                                _id={item._id}
-                                                foodName={item.foodName}
-                                                price={item.price}
-                                                details={item.details}
-                                                photo={item.PhotoUrl || "photo is not loading"}
-                                            />
+                                            <div className="flex justify-between">
+                                                <OrderNow
+                                                    _id={item._id}
+                                                    foodName={item.foodName}
+                                                    price={item.price}
+                                                    details={item.details}
+                                                    photo={item.PhotoUrl || "photo is not loading"}
+                                                />
 
-                                            <div className="flex-row-center gap-[2px]">
-                                                {Array.from({ length: item.rating }, (_, i) => (
-                                                    <img key={i} src={star} alt="star" />
-                                                ))}
+                                                <div className="flex-row-center gap-[2px]">
+                                                    {Array.from({ length: item.rating }, (_, i) => (
+                                                        <img key={i} src={star} alt="star" />
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
 
-                    </div>
+                        </div>
+                    )}
+
                 </div>
                 <div className="menu-div-2 mb-high ">
                     <div className="w-[90vw] sm:w-[70vw] lg:w-[50vw] xl:w-[40vw]  bg-[#0000007e] p-6 flex flex-col items-center text-center gap-5 ">
@@ -103,45 +110,50 @@ const Menu = () => {
                 <div className="flex flex-col items-center mb-high">
                     <h2 className="text-header">All Menu</h2>
                     <img src={line} alt="logo" className="mb-primary mt-3 " />
-                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
-                        {menu.map((item) => (
-                            <div key={item._id}>
-                                <div className=" w-[97vw] sm:w-[370px] ">
-                                    <div className="w-[97vw] sm:w-[370px] h-auto sm:h-[300px] overflow-hidden object-center relative ">
-                                        <img src={item.PhotoUrl} alt="photo 1" className="hover-image-popular " />
-                                    </div>
-                                    <div className="flex flex-col h-[170px] justify-between">
-                                        <div>
-                                            <div className="mt-5 flex justify-between text-2xl">
-                                                <h4 className="text-white">{item.foodName}</h4>
-                                                <p>${item.price}</p>
-                                            </div>
-                                            <p className="text-[var(--pTx-color)] text-sm pt-[6px] pb-4 w-[300px] ">
-                                                {item.details}
-                                            </p>
+                    {isLoading ? (
+                        <div className="w-12 h-12 border-4 border-amber-600 border-t-transparent rounded-full animate-spin"></div>
+                    ) : (
+                        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
+                            {menu.map((item) => (
+                                <div key={item._id}>
+                                    <div className=" w-[97vw] sm:w-[370px] ">
+                                        <div className="w-[97vw] sm:w-[370px] h-auto sm:h-[300px] overflow-hidden object-center relative ">
+                                            <img src={item.PhotoUrl} alt="photo 1" className="hover-image-popular " />
                                         </div>
+                                        <div className="flex flex-col h-[170px] justify-between">
+                                            <div>
+                                                <div className="mt-5 flex justify-between text-2xl">
+                                                    <h4 className="text-white">{item.foodName}</h4>
+                                                    <p>${item.price}</p>
+                                                </div>
+                                                <p className="text-[var(--pTx-color)] text-sm pt-[6px] pb-4 w-[300px] ">
+                                                    {item.details}
+                                                </p>
+                                            </div>
 
-                                        <div className="flex justify-between">
-                                            <OrderNow
-                                                _id={item._id}
-                                                foodName={item.foodName}
-                                                price={item.price}
-                                                details={item.details}
-                                                photo={item.PhotoUrl || "photo is not loading"}
-                                            />
+                                            <div className="flex justify-between">
+                                                <OrderNow
+                                                    _id={item._id}
+                                                    foodName={item.foodName}
+                                                    price={item.price}
+                                                    details={item.details}
+                                                    photo={item.PhotoUrl || "photo is not loading"}
+                                                />
 
-                                            <div className="flex-row-center gap-[2px]">
-                                                {Array.from({ length: item.rating }, (_, i) => (
-                                                    <img key={i} src={star} alt="star" />
-                                                ))}
+                                                <div className="flex-row-center gap-[2px]">
+                                                    {Array.from({ length: item.rating }, (_, i) => (
+                                                        <img key={i} src={star} alt="star" />
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
 
-                    </div>
+                        </div>
+                    )}
+
                 </div>
             </div>
             <Footer />

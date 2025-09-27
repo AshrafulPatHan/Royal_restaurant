@@ -44,7 +44,7 @@ const Footer = () => {
                     <h3 className="footer-header">Contact Info</h3>
                     <Link to='/' >bangladesh</Link>
                     <Link to='/'>info@my.com</Link>
-                    <Link to='/'>+880-10108-07070</Link>
+                    <Link to='/'>+880101070</Link>
                 </div>
                 <div className="flex-footer-start gap-2">
                     <h3 className="footer-header">Follow Us</h3>
@@ -55,8 +55,9 @@ const Footer = () => {
                 </div>
                 <div className="flex-footer-start gap-2">
                     <h3 className="footer-header">Legal</h3>
-                    <Link to='/' className="">Website by ashraful.top</Link>
-                    <Link to='/'>©2022. All Rights Reserved</Link>
+                    <p className="text-xs">Website by </p>
+                    <Link to='/' className="">ashraful.top</Link>
+                    <Link to='/' className="text-start">©2022. All Rights Reserved</Link>
                 </div>
             </div>
         </footer>

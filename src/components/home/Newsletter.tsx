@@ -3,13 +3,14 @@
 const Newsletter = () => {
     return (
         <div className="mt-high mb-sec data-main  ">
-            <div className="flex flex-col sm:flex-row items-center justify-center w-[90vw] xl:w-[60vw] max-w-[1170px] sm:gap-[30%] lg:gap-[60%] mx-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-between w-[90vw] xl:w-[60vw] max-w-[1170px] gap-0 md:gap-3 lg:gap-0 mx-auto">
                 <div className="flex flex-col text-center sm:text-start gap-2" >
                     <h2 className="text-white font-bold text-xl sm:text-3xl">Newsletter</h2>
-                    <p className="text-sm ">Subscribe to our newsletter and receive 15% discount from your order.</p>
+                    <p className="text-sm w-auto lg:w-[15vw] ">Subscribe to our newsletter and receive 15% discount from your order.</p>
                 </div>
-                <div className="form-control pr-4 ">
-                    <input type="text" required />
+                <div className="w-full lg:w-[300px] ">
+                    <div className="form-control pr-4  ">
+                    <input type="text" required  />
                     <label>
                         <span style={{ transitionDelay: '0ms' }}>E</span>
                         <span style={{ transitionDelay: '50ms' }}>m</span>
@@ -26,6 +27,8 @@ const Newsletter = () => {
                         <span style={{ transitionDelay: '600ms' }}>s</span>
                     </label>
                 </div>
+                </div>
+                
             </div>
         </div>
     );

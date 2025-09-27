@@ -15,53 +15,54 @@ import Visit from './components/home/Visit'
 import Footer from './components/navigation/Footer'
 import Navbar from './components/navigation/Navbar'
 
+
 function App() {
 
   return (
     <div>
       <div className=' max-w-screen overflow-x-hidden'>
-        <Navbar/>
+        <Navbar />
       </div>
-        
+
       <div className='text-primary max-w-screen overflow-x-hidden px-[14px] sm:px-[30px]  '>
-        <Hero/>
-        <About/>
+        <Hero />
+        <About />
       </div>
 
       <div className='max-w-screen overflow-x-hidden'>
-        <Data/>
+        <Data />
       </div>
-      
+
       <div className='text-primary max-w-screen overflow-x-hidden px-[14px] sm:px-[30px]  '>
-        <Popular_Food/>
-        <Opening_Times/>
-        <Our_Menu/>
-        <Visit/>
-        <BookNow/>
-        <Offers/>
+        <Popular_Food />
+        <Opening_Times />
+        <Our_Menu />
+        <Visit />
+        <BookNow />
+        <Offers />
       </div>
 
       <div className='max-w-screen overflow-x-hidden'>
-        <AutoSlider/>
+        <AutoSlider />
       </div>
 
       <div className='text-primary max-w-screen overflow-x-hidden px-[14px] sm:px-[30px]  '>
-        <Cook/>
+        <Cook />
       </div>
 
       <div className='text-primary max-w-screen overflow-x-hidden px-[14px] sm:px-[30px]  '>
-        <Our_Blog/>
+        <Our_Blog />
       </div>
 
       <div className='max-w-screen overflow-x-hidden text-primary'>
-        <Newsletter/>
+        <Newsletter />
       </div>
 
       <div className=' max-w-screen overflow-x-hidden px-[14px] sm:px-[30px]  '>
-        <Footer/>
+        <Footer />
       </div>
     </div>
-    
+
   )
 }
 
