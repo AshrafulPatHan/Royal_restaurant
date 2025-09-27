@@ -12,7 +12,7 @@ const Hero = () => {
     const [smallImages, setSmallImages] = useState([Plate, Plate1, Plate2]);
 
     // swap handle function
-    const handleSwap = (index) => {
+    const handleSwap = (index: number) => {
         const newSmallImages = [...smallImages];
         const temp = bigImage;
 
