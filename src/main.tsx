@@ -22,6 +22,7 @@ import Profile from "./admin/pages/Profile.tsx";
 import Reviews from "./admin/pages/Reviews.tsx";
 import Table from "./admin/pages/Tabile.tsx";
 import BlogDetails from "./page/blog/details/BlogDetails.tsx";
+import SmoothScroll from "./SmoothScroll.tsx";
 
 
 const router = createBrowserRouter([
@@ -53,8 +54,10 @@ const root = document.getElementById("root") as HTMLElement;
 
 ReactDOM.createRoot(root).render(
   <div>
+    <SmoothScroll>
       <RouterProvider router={router} />
       <Toaster />
+    </SmoothScroll>
   </div>
 );
 
