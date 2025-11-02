@@ -59,8 +59,8 @@ Make sure you have the following installed:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [Your Frontend Repository URL]
-    cd royal-restaurant-client
+    git clone [https://github.com/AshrafulPatHan/Royal_restaurant.git]
+    cd Royal_restaurant
     ```
 2.  **Install dependencies:**
     ```bash
@@ -75,5 +75,10 @@ Create a file named `.env` in the root directory. You will need to specify the U
 
 ```env
 # Backend API URL
-VITE_API_BASE_URL=http://localhost:5000
-# Replace with your production backend URL when deploying
+VITE_API_URL=http://localhost:3000
+VITE_ADMIN_URL=http://localhost:3000/admin
+
+# Imagebb api key
+VITE_IMAGEBB_API=your-api-key
+
+```
