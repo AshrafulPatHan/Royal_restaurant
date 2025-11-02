@@ -59,7 +59,7 @@ Make sure you have the following installed:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/AshrafulPatHan/Royal_restaurant.git]
+    git clone https://github.com/AshrafulPatHan/Royal_restaurant.git
     cd Royal_restaurant
     ```
 2.  **Install dependencies:**
